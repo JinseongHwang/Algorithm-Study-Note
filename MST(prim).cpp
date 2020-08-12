@@ -1,13 +1,26 @@
 /*
-	* 프림(Prim) 알고리즘: MST를 찾아내는 알고리즘 중 하나이다.
-	 - 우선순위 큐(최소힙)을 사용해서 가장 작은 가중치의 정점을 선택한 후,
-	 그 인접한 정점들의 가중치 값을 비교해서 갱신 여부를 결정한다.
-	 - 처음에
+	* 프림(Prim) 알고리즘: Minimum Spanning Tree를 찾아내는 알고리즘 중 하나이다.
 
+	* 대표적으로 MST를 찾아내는 알고리즘으로 Kruskal과 Prim이 있다.
+	 - Kruskal => 정점이 간선에 비해 상대적으로 많을 때 유리 => O(E log E)
+	 - Prim => 간선에 비해 정점이 상대적으로 많을 때 유리 => O(E log V)
 
+	: 우선순위 큐(최소힙)을 사용해서 가장 작은 가중치의 정점을 선택한 후,
+	그 인접한 정점들을 포함시켜 나가는 방법이다.
 
-	 시간복잡도 => O(ElogV)
+	1. 시작 정점을 선택하고, 그 정점으로의 가중치는 0이다.
+	2. 시작 정점을 우선순위 큐에 삽입한다.
+	3. 우선순위 큐의 top에(최소 가중치) 접근해서, 방문 여부 확인 후 포함시킨다.
+	4. 포함 후 pop하고, 포함된 정점과 연결된 다른 정점들을 우선순위 큐에 삽입한다.
+	5. 3~4 과정을 모든 정점을 방문할 때 까지 반복한다.
+
+	시간복잡도 => O(E log V)
+
+	참고 : https://www.weeklyps.com/entry/%ED%94%84%EB%A6%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Prims-algorithm
 */
+
+// 대표적인 유형
+// #1922 네트워크 연결
 
 #include <iostream>
 #include <vector>
@@ -29,13 +42,13 @@ int prim() {
 		int curr = pq.top().second;
 		int cost = pq.top().first;
 		pq.pop();
-		if (visited[curr]) continue;
-		visited[curr] = 1;
+		if (visited[curr]) continue; // 이미 방문했다면 무시, 사이클 방지
+		visited[curr] = true; // 방문 처리
 
 		result += cost;
-		if (++cnt == V) break;
+		if (++cnt == V) break; // 모든 정점을 방문했을 경우
 
-		for (const auto& nxt : edge[curr]) {
+		for (const auto& nxt : edge[curr]) { // 현재 정점과 연결된 정점
 			if (visited[nxt.second]) continue;
 			pq.push(nxt);
 		}
