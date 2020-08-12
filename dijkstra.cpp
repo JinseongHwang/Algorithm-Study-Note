@@ -24,7 +24,7 @@
 #include <utility>
 using namespace std;
 
-typedef pair<int, int> pii;
+typedef pair<int, int> pii; // 가중치, 정점 번호
 const int MAX = 2e4 + 10, INF = 0x7fffffff;
 int V, E, S, dist[MAX];
 bool visited[MAX];
@@ -40,13 +40,17 @@ void dijkstra(int start) {
 		do {
 			curr = pq.top().second;
 			pq.pop();
-		//} while (!pq.empty() && visited[curr]);
-		} while (visited[curr]);
+		// pq가 비어있지 않고, curr이 방문한 상태라면 계속 반복
+		// pq가 비어있거나, curr이 방문하지 않았다면 break
+		} while (!pq.empty() && visited[curr]);
 		
+		// 이미 방문한 정점들밖에 없어서 curr마저 방문된 상태라면 break
 		if (visited[curr]) break;
-		visited[curr] = true;
+		visited[curr] = true; // 방문 체크
 
 		for (const auto& nxt : graph[curr]) {
+			// first: 가중치 / second: 정점 번호
+			// 경유해서 가는 것이 더 짧은 거리를 가지면 갱신하고 push한다
 			if (dist[nxt.second] > dist[curr] + nxt.first) {
 				dist[nxt.second] = dist[curr] + nxt.first;
 				pq.push(pii(dist[nxt.second], nxt.second));
