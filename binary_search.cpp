@@ -26,7 +26,7 @@ int N, M, arr[MAX];
 
 // 이진 탐색 직접 구현하기
 bool My_Binary_Search(int target) {
-	int L = 0, R = N - 1; // 0 부터 N - 1 까지 이다!
+	int L = 0, R = N; // 0 부터 N까지 이다!
 	while (L <= R) { // 조건 조심 !
 		int mid = (L + R) / 2;
 		if (arr[mid] == target) { // 원하는 값을 찾은 경우
