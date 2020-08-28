@@ -84,7 +84,6 @@ int main() {
 
 // #10807 개수 세기
 
-// 이 문제는 STL을 사용하는 것 보다 구현해서 사용하는 것이 맞다고 생각한다.
 // 사실 N이 최대 100이기 때문에 브루트포스로 풀어도 되지만,
 // bound를 사용해서 풀 수도 있기 때문에 공부할 겸 풀어보았다.
 
@@ -120,15 +119,21 @@ int main() {
 	sort(arr, arr + n);
 
 	cin >> k;
+
+	// 구현한 bound 사용 예제
 	int lb = My_Lower_Bound();
 	int ub = My_Upper_Bound();
 
-	// STL 사용 예제
-	int stl_lb = *lower_bound(arr, arr + n, k);
-	int stl_ub = *upper_bound(arr, arr + n, k);
-
 	if (lb == n) cout << "0\n";
 	else cout << ub - lb << "\n";
+
+	// STL 사용 예제
+	// STL 함수는 target의 주소값을 반환하기 때문에, 배열의 시작 주소를 빼면 index를 알 수 있다.
+	int stl_lb = lower_bound(arr, arr + n, k) - arr;
+	int stl_ub = upper_bound(arr, arr + n, k) - arr;
+
+	if (stl_lb == n) cout << "0\n";
+	else cout << stl_ub - stl_lb << "\n";
 
 	return 0;
 }
