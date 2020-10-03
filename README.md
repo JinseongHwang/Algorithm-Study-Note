@@ -1,6 +1,9 @@
 # Algorithm-Study-Note
     
-[![Solved.ac 프로필](http://mazassumnida.wtf/api/generate_badge?boj=eddy5360)](https://solved.ac/eddy5360)
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=eddy5360)](https://solved.ac/eddy5360)    
+
+from [mazassumnida](https://github.com/mazassumnida/mazassumnida.git)
     
 ### ● 교육활동    
 ✔ 2020-06-30 ~ 2020-08-18: 동아대학교 컴퓨터공학과 재학생 대상 기초 알고리즘 강의 진행    
