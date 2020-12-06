@@ -19,8 +19,6 @@ string to_upper_case(string);
 
 int main() {
 
-	/*
-
 	// [ 선언 ]
 	// string 변수 선언과 동시에 초기화
 	string str = "Jinseong Hwang";
@@ -67,9 +65,9 @@ int main() {
 	cout << str.capacity(); // 할당된 공간의 전체 크기를 반환한다. length()와 다른 개념이다.
 	str.shrink_to_fit(); // 쓰고있지 않은 capacity를 length에 맞게 할당 해제한다.
 
-	*/
 
-	string str = "This is the moment, When all I've done";
+	// [ 예제 변경 ]
+	str = "This is the moment, When all I've done";
 
 	// 문자열에 포함된 공백 제거
 	str.erase(remove(str.begin(), str.end(), ' '), str.end());
@@ -79,7 +77,7 @@ int main() {
 	cout << to_upper_case(str) << "\n"; // 모든 알파벳을 대문자 형태로 표현한다.
 
 
-	// [ 구현된 함수 ]
+	// [ 구현된 함수 활용 ]
 	// 문자열 자르기
 	// substr(x): [x, END) 추출 -> x번째 index에서 끝까지
 	// substr(x, y): [x, x+y) 추출 -> x번째 index에서 y개 만큼
@@ -97,6 +95,7 @@ int main() {
 	while ((start_index = str.find("is", start_index + 1)) != string::npos) {
 		cout << start_index << "\n";
 	} // -> 2 5
+
 
 	// 문자열 대체(replace)
 	char from = 'e';
@@ -117,6 +116,7 @@ int main() {
 		str.replace(start_index, from_s.length(), to_s);
 	} // -> "ThISISIS ISISIS the moment, When all I've done"
 
+	
 	// 문자열 <-> 정수 왔다갔다
 	int x = 123;
 	string y = "456";
@@ -130,6 +130,7 @@ int main() {
 	ssInt << x;
 	/* since C++98 */cout << ssInt.str() + y << "\n"; // -> "123456"
 	/* since C++11 */cout << to_string(x) + y << "\n"; // -> "123456"
+
 
 	str.clear(); // size를 0으로 만든다.
 
