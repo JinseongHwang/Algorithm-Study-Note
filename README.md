@@ -12,4 +12,4 @@ from [mazassumnida](https://github.com/mazassumnida/mazassumnida.git)
 ### ● 대회참가
 ✔ 2020-08-21: SCPC 2020 Round1 통과    
 ✔ 2020-08-29: 2020 브랜디 코딩대회 '코드네임B' 1차 대회 통과    
-✔ 2020-12-07: DUCC(동아대학교 코딩 경진대회) 2학년 부문 우수상 수상
+✔ 2020-12-07: DUCC(동아대학교 코딩 경진대회) 우수상(3위) 수상
