@@ -5,6 +5,8 @@
 
 from [mazassumnida](https://github.com/mazassumnida/mazassumnida.git)
     
+- 강의자료 업로드합니다.
+
 ### ● 교육활동    
 ✔ 2020-06-30 ~ 2020-08-18: 동아대학교 컴퓨터공학과 재학생 대상 기초 알고리즘 강의 진행    
     
