@@ -26,6 +26,8 @@ arr = list(reversed(range(1, 11)))
 print(arr) # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
+<br>
+
 ## list 활용
 
 ```python
@@ -37,6 +39,7 @@ res = list(('a', 'b')) # tuple to list
 print(res) # ['a', 'b']
 ```
 
+<br>
 
 ## map 활용
 
@@ -49,6 +52,7 @@ print(res) # [1, 2, 3, 4, 5]
 - map의 첫 번째 parameter에는 적용할 메서드가 들어가고, 
 - 두 번째 parameter에는 첫 번째 parameter의 함수에 전달할 값이 시퀀스 형태로 들어간다.
 
+<br>
 
 ## list, map, lambda 활용
 
@@ -66,6 +70,7 @@ res = list(map(lambda x: f'{x}=홀수' if x & 1 else f'{x}=짝수', range(1, 10)
 print(res) # ['1=홀수', '2=짝수', '3=홀수', '4=짝수', '5=홀수', '6=짝수', '7=홀수', '8=짝수', '9=홀수']
 ```
 
+<br>
 
 ## List Comprehension
 
@@ -94,6 +99,8 @@ print(res) # {'name': 'jinseong', 'age': 10, 'gpa': 4.5}
 - if 조건만 붙이고 싶다면 for-in 뒤에,
 - if else 둘 다 붙이고 싶다면 for-in 앞에.
 
+<br>
+
 ## range와 list comprehension의 차이
 
 ```python
@@ -115,6 +122,8 @@ print(sys.getsizeof(lc)) # 8,448,728
 - 하지만 list comprehension 방식으로 생성하면 모조리 생성되어서 메모리에 적재된다. 메모리 점유가 크다.
 - 컴퓨팅 리소스 점유 측면에서 서로 다르니 필요한 방식에 따라 적절히 선택해서 사용하자!
 
+<br>
+
 ## enumerate
 
 ```python
@@ -133,6 +142,8 @@ for idx, val in enumerate(arr):
 
 - 순서가 있는 자료형을 인덱스를 포함한 enumerate 객체로 반환시킨다.
 - 시퀀스에 인덱스를 부여하며 반복할 때 유용하게 사용된다.
+
+<br>
 
 ## locals
 
