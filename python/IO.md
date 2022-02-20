@@ -1,5 +1,7 @@
 # 파이썬 입출력(Input/Output)
 
+<br>
+
 ## 입력 최적화
 
 ```python
@@ -24,6 +26,8 @@ print(data) # [[1, 2, 3, 4, 5], [6, 7, 8, 9, 0]]
 - `input` 은 한 줄을 입력 받고, 마지막에 개행 문자를 삭제한다. 인자로 문자열을 넣어주면 prompt message 역할을 수행한다.
 - `sys.stdin.readline` 은 한 줄 입력만 해준다. 개행문자 삭제 X, prompt message 기능 X
 - 참고자료는 [여기](https://buyandpray.tistory.com/7)
+
+<br>
 
 ## 입력(Input)
 
@@ -50,6 +54,8 @@ print(int(value1) + int(value2))  # expected output: 30
 value1, value2 = map(int, input('숫자 두 개를 입력하세요: ').split())  # input: 10 20
 print(value1 + value2)  # expected output: 30
 ```
+
+<br>
 
 ## 출력(Output)
 
