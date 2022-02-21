@@ -86,3 +86,4 @@
 
 - [파이썬 입출력](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/IO.md)
 - [파이썬 기초](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Basic.md)
+- [리스트 List](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/List.md)
