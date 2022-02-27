@@ -6,4 +6,4 @@ Algorithm-Study-Note.vcxproj.user
 Algorithm-Study-Note/
 Debug/
 .idea/
-src/
+test_only.py
