@@ -21,6 +21,13 @@ raw = 2
 data = [list(map(int, input().split())) for _ in range(raw)]
 print(data) # [[1, 2, 3, 4, 5], [6, 7, 8, 9, 0]]
 ```
+```python
+# 또 다른 방법
+import sys
+
+def input():
+    return sys.stdin.readline().rstrip()
+```
 
 - `input` 과 `sys.stdin.readline` 는 무엇이 다를까?
 - `input` 은 한 줄을 입력 받고, 마지막에 개행 문자를 삭제한다. 인자로 문자열을 넣어주면 prompt message 역할을 수행한다.
