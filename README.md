@@ -1,7 +1,6 @@
 # Algorithm-Study-Note
     
-[![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=eddy5360)](https://solved.ac/eddy5360)    
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=eddy5360)](https://solved.ac/eddy5360)    
 
 
 **● 교육활동**    
@@ -19,7 +18,8 @@
 **● PS 근황**
 
  ✔ cpp -> java -> python(현재)    
- ✔ 백준보단 프로그래머스와 leetcode 애용
+ ✔ 백준보단 프로그래머스와 leetcode 애용    
+ ✔ [스터디 Repository](https://github.com/donga-it-club/Algorithm-Study/tree/main/%ED%99%A9%EC%A7%84%EC%84%B1) 에 풀이 업로드 중
 
 
 ## C++
@@ -87,3 +87,4 @@
 - [파이썬 입출력](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/IO.md)
 - [파이썬 기초](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Basic.md)
 - [리스트 List](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/List.md)
+- [딕셔너리 Dictionary](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Dictionary.md)
