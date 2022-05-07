@@ -69,6 +69,24 @@ data.sort(key=lambda d: (-d[1], d[2], -d[3], d[0]))
 ```python
 from functools import cmp_to_key
 
+def compare_asc(arg1, arg2):
+	if arg1 <= arg2:
+		return -1
+	elif arg1 > arg2:
+		return 1
+
+def compare_desc(arg1, arg2):
+	if arg1 < arg2:
+		return 1
+	elif arg1 >= arg2:
+		return -1
+
+int_ls = [3, 4, 2, 5, 6, 2, 7, 9, 8, 7]
+int_ls.sort(key=cmp_to_key(compare_asc))
+print(int_ls)  # [2, 2, 3, 4, 5, 6, 7, 7, 8, 9]
+
+int_ls.sort(key=cmp_to_key(compare_desc))
+print(int_ls)  # [9, 8, 7, 7, 6, 5, 4, 3, 2, 2]
 ```
 
 <br>
@@ -81,7 +99,7 @@ from functools import cmp_to_key
 from functools import cmp_to_key
 
 # 항상 앞 인자(arg1)를 기준으로 한다.
-# -1, 0을 반환하면 그대로, +1을 반환하면 뒤집기 
+# -1, +1로 구분해서 반환하기 
 def compare(arg1, arg2):
 	# 국어 점수가 작은 경우
 	if arg1[1] < arg2[1]:
