@@ -86,5 +86,7 @@
 
 - [파이썬 입출력](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/IO.md)
 - [파이썬 기초](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Basic.md)
+- [파이썬 정렬 Sort](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Sort.md)
 - [리스트 List](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/List.md)
 - [딕셔너리 Dictionary](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Dictionary.md)
+- [집합 Set](https://github.com/JinseongHwang/Algorithm-Study-Note/blob/master/python/Set.md)
