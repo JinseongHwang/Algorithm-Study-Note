@@ -41,7 +41,7 @@ print(res) # ['a', 'b']
 
 <br>
 
-## map 활용
+## map 활용 (시퀀스 1개)
 
 ```python
 inp = "1 2 3 4 5"
@@ -51,6 +51,25 @@ print(res) # [1, 2, 3, 4, 5]
 
 - map의 첫 번째 parameter에는 적용할 메서드가 들어가고, 
 - 두 번째 parameter에는 첫 번째 parameter의 함수에 전달할 값이 시퀀스 형태로 들어간다.
+
+<br>
+
+## map 활용 (시퀀스 여러개)
+
+```python
+x_list = [1, 2, 3, 4]
+y_list = [5, 6, 7, 8]
+z_list = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+res = list(map(lambda x, y, z: (x + 1, y + 2, z + 3), x_list, y_list, z_list))
+
+print(res) # [(2, 7, 12), (3, 8, 13), (4, 9, 14), (5, 10, 15)]
+```
+
+- map의 첫 번째 parameter에는 역시 적용할 메서드가 들어간다.
+- 두 번째부터는 전달할 시퀀스들이 들어간다.
+- 예제의 경우는 3개의 시퀀스를 전달했기 때문에 각 시퀀스의 값들에 lambda 함수를 적용한 결과 tuple이 반환된다.
+- 단, 예제에서 3개의 시퀀스는 길이가 서로 다르다.(4, 4, 9) 가장 짧은 시퀀스 기준으로 순회하며, 초과하는 값들은 무시된다.
 
 <br>
 
@@ -181,5 +200,71 @@ pprint.pprint(locals())
  'fset': frozenset({'c', 'b', 'a'}),
  'pprint': <module 'pprint' from '/usr/local/lib/python3.9/pprint.py'>}
 ```
+
 - `locals()` 는 로컬 심볼 테이블 딕셔너리를 가져오는 메서드이다. 디버깅 시 유용하다.
 - `pprint.pprint()` 를 사용하면 줄바꿈이 포함되어 깔끔하게 확인할 수 있다.
+
+<br>
+
+## filter
+
+```python
+def samyukgu_filter(value):
+	split = list(str(value))
+	return '3' in split or '6' in split or '9' in split
+
+
+ls = list(range(1, 30))  # 1 ~ 29
+res = list(filter(samyukgu_filter, ls))
+
+print(res)  # [3, 6, 9, 13, 16, 19, 23, 26, 29]
+```
+
+- 3,6,9 게임 필터이다. 조건에 부합하는 숫자만 걸러낸다.
+- 1 ~ 29 숫자가 들어있는 리스트에서 filter를 거치면 True를 반환하는 값들만 뽑아낸다.
+- 첫 번째 인자에는 적용할 메서드가 들어가는데, lambda가 들어갈 수도 있다.
+
+<br>
+
+## reduce
+
+```python
+from functools import reduce
+from collections import defaultdict
+
+# user dataset
+users = [{'mail': 'gregorythomas@gmail.com', 'name': 'Brett Holland', 'sex': 'M', 'age': 73},
+         {'mail': 'hintoncynthia@hotmail.com', 'name': 'Madison Martinez', 'sex': 'F', 'age': 29},
+         {'mail': 'wwagner@gmail.com', 'name': 'Michael Jenkins', 'sex': 'M', 'age': 51},
+         {'mail': 'daniel79@gmail.com', 'name': 'Karen Rodriguez', 'sex': 'F', 'age': 32},
+         {'mail': 'ujackson@gmail.com', 'name': 'Amber Rhodes', 'sex': 'F', 'age': 42}]
+
+"""
+:param acc 누산 값
+:param curr 현재 순회 값
+"""
+# 마지막 인자는 초기값이다. 따라서 정수 계산 시 아래와 같이 표현한다면, 생략해도 동일한 표현이다.
+age_sum = reduce(lambda acc, curr: acc + curr['age'], users, 0)
+print(age_sum)  # 227
+
+# 리스트의 extend는 '+' 연산자로도 가능하다.
+mails = reduce(lambda acc, curr: acc + [curr['mail']], users, [])
+print(mails)  # ['gregorythomas@gmail.com', 'hintoncynthia@hotmail.com', 'wwagner@gmail.com', 'daniel79@gmail.com', 'ujackson@gmail.com']
+
+
+# 성별로 분류하기
+def names_by_sex(acc, curr):
+    sex = curr['sex']
+    acc[sex].append(curr['name'])
+    return acc
+
+
+names_with_sex = reduce(names_by_sex, users, defaultdict(lambda: []))
+print(names_with_sex)  # {'M': ['Brett Holland', 'Michael Jenkins'], 'F': ['Madison Martinez', 'Karen Rodriguez', 'Amber Rhodes']})
+print(names_with_sex['M'])  # ['Brett Holland', 'Michael Jenkins']
+print(names_with_sex['F'])  # ['Madison Martinez', 'Karen Rodriguez', 'Amber Rhodes']
+```
+
+- Python 3 부터는 reduce가 기본 모듈에서 빠져서, functools 에서 import 해서 사용해야 한다.
+- 마지막 인자는 초기값이다. acc에 해당 값을 넣어두고 실행한다고 생각하면 편하다.
+- Referernce by https://www.daleseo.com/python-functools-reduce/#reduce-%ED%95%A8%EC%88%98
